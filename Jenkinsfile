@@ -16,12 +16,12 @@ pipeline{
         }
         stage ("Build and Scan") {
             steps {
-                withCredentials([string(credentialsId: 'SONAR-TOKEN', variable: 'SONAR-TOKEN')]) 
+                withCredentials([string(credentialsId: 'sonarqube-token', variable: 'SONAR_TOKEN')])
                 {
                   sh 'mvn clean verify sonar:sonar \
                 -Dsonar.projectKey=devsecops-project \
                 -Dsonar.host.url="http://${SONAR_IP}:9000" \
-                -Dsonar.token="${SONAR-TOKEN}" \
+                -Dsonar.token="${SONAR_TOKEN}" \
                 -Dsonar.qualitygate.wait=true'
                 }
             }
