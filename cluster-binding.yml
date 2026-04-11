@@ -34,7 +34,7 @@ metadata:
   name: jenkins-deployer-binding
 subjects:
   - kind: User
-    name: jenkins-agnet-role     # must match the username in aws-auth
+    name: jenkins-agent-role     # must match the username in aws-auth
     apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: ClusterRole
