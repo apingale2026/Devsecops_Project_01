@@ -32,5 +32,10 @@ pipeline{
                 sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $ECR_REGISTRY '
             }
         }
+	stage('Build Image') {
+      steps {
+        sh 'export DOCKER_BUILDKIT=0 && docker build --platform linux/amd64 -t "$IMAGE_REPO:$BUILD_NUMBER" -t "$IMAGE_REPO:latest" .'
+      }
+    }
     }
     }
