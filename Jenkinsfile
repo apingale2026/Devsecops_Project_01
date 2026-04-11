@@ -60,12 +60,12 @@ pipeline{
        steps {
         sh '''#!/bin/bash -l
          aws eks update-kubeconfig \
-         -region ap-south-1 \
+         --region ap-south-1 \
          --name devsecops-eks \
          --kubeconfig /home/jenkins/.kube/config
 
          kubectl create ns devsecops
-         kubectl apply -f deploy-svc.yaml
+         kubectl apply -f deploy-svc.yml
 
          kubectl rollout status -n cwvj-devsecops deployment/cwvj-devsecops-demo --timeout=60s || {
          kubectl rollout undo -n cwvj-devsecops deployment/cwvj-devsecops-demo || true
