@@ -19,7 +19,7 @@ managedNodeGroups:                        # defines managed node groups
     instanceType: t3.small                # EC2 instance type for workers
     minSize: 2                            # minimum nodes in node group
     maxSize: 2                            # maximum nodes in node group
-    desiredCapacity: 1                    # desired node count at creation
+    desiredCapacity: 2                   # desired node count at creation
     volumeSize: 20                        # root disk size (GiB)
     privateNetworking: false              # nodes get public networking
     ssh:                                  # SSH configuration
